@@ -2,7 +2,6 @@ const axios = require("axios");
 const request = require("request");
 const fs = require("fs-extra");
 const moment = require("moment-timezone");
-
 module.exports.config = {
  name: "admin",
  version: "1.0.0",
@@ -13,10 +12,8 @@ module.exports.config = {
  usages: "admin",
  cooldowns: 2
 };
-
 module.exports.run = async function({ api, event }) {
  const time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
-
  const callback = () => api.sendMessage({
  body: `
 ┌───────────────⭓
@@ -30,16 +27,14 @@ module.exports.run = async function({ api, event }) {
 │ 🎓 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 : 𝐇𝐒𝐂 (𝟐𝟎𝟐𝟔)
 │ 🏡 𝐀𝐝𝐝𝐫𝐞𝐬𝐬 : 𝐊𝐡𝐚𝐠𝐫𝐚𝐜𝐡𝐡𝐚𝐫𝐢
 └───────────────⭓
-
 ┌───────────────⭓
 │ 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗟𝗜𝗡𝗞𝗦
 ├───────────────
 │ 📘 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸:
 │ https://fb.com/100001039692046
 │ 💬 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽:
-│ https://wa.me/011301560584
+│ https://wa.me/01882333052
 └───────────────⭓
-
 ┌───────────────⭓
 │ 🕒 𝗨𝗽𝗱𝗮𝘁𝗲𝗱 𝗧𝗶𝗺𝗲
 ├───────────────
@@ -48,8 +43,7 @@ module.exports.run = async function({ api, event }) {
  `,
  attachment: fs.createReadStream(__dirname + "/cache/owner.jpg")
  }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/owner.jpg"));
-
- return request("https://imgur.com/a/VYrLKqx.jpg")
+ return request("https://i.imgur.com/idyXtoO.jpeg")
  .pipe(fs.createWriteStream(__dirname + '/cache/owner.jpg'))
  .on('close', () => callback());
 };
